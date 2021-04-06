@@ -1,0 +1,5 @@
+export const ADD_TO_LIST_SUCCEED =  'TODO_LIST_SUCCEED';
+export const ADD_TO_LIST_FAILED =  'TODO_LIST_FAILED';
+
+export const  GET_LIST_SUCCEED =  'TODO_LIST_SUCCEED';
+export const  GET_LIST_FAILED =  'TODO_LIST_FAILED';
