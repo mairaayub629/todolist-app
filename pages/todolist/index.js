@@ -2,11 +2,11 @@ import { connect } from 'react-redux';
 import TodoList from '../../components/todolist'
 import { AddToList, GetList} from '../../store/actions/listActions'
 
-function TodoPage(props) {
+function TodoPage({ GetList }) {
 
     return(
         <div>
-           <TodoList props={props} />
+           <TodoList GetList={GetList}/>
         </div>
     ) 
 
@@ -18,11 +18,9 @@ const mapStateToProps = (state) => {
     };
  }
 
- const mapDispatchToProps = (dispatch) => {
-    return {
-      AddToList,
-      GetList
-    }
-  }
+ const mapDispatchToProps = (dispatch) => ({
+      AddToList: dispatch(AddToList),
+      GetList: dispatch(GetList)
+  })
  
 export default connect(mapStateToProps, mapDispatchToProps)(TodoPage);

@@ -1,9 +1,30 @@
-import react, { useState } from 'react';
+import react, { useState, useEffect } from 'react';
 import { reduxForm, Field } from 'redux-form';
 
-function ListForm(props) {
+function ListForm({ GetList }) {
 
    const [list, setList] = useState([]);
+//    const { GetList } = props; 
+
+   useEffect(()=> {
+    //    (async()=> {
+    //       const resp = await GetList();
+    //       console.log('resp', resp);
+    //       if(resp && resp.value){
+    //           setList(resp.value);
+    //       }
+    //    })();
+
+       async function fetchMyAPI() {
+        const resp = await GetList();
+        console.log('resp', resp);
+        if(resp && resp.value){
+            setList(resp.value);
+        }
+      }
+  
+      fetchMyAPI()
+   }, []);
 
    const AddtoList=(value) => {
       list.push(value);
